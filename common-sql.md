@@ -1,6 +1,6 @@
 I've used ID in most of the where conditions, but use what you like.
 
-## Get 
+## Get
 
 ```
 SELECT * from tablename
@@ -25,7 +25,7 @@ ALTER TABLE table_name
 ADD column_name datatype;
 ```
 
-## Delete a table 
+## Delete a table
 
 ```
 DROP TABLE table_name;
@@ -48,25 +48,25 @@ DELETE FROM table_name WHERE id=${id};
 ## (inner) join
 
 ```
-SELECT table_1.column_1, table_1.column_2, table_2.column_2 
-FROM table_1 
-INNER JOIN table_2 
+SELECT table_1.column_1, table_1.column_2, table_2.column_2
+FROM table_1
+INNER JOIN table_2
 ON table_1.column2 = table_2.column1
 ```
 
-// outer/left/right joins follow the same structure but still also show entries that dont have a matching 'pair' in the other table. 
+// outer/left/right joins follow the same structure but still also show entries that dont have a matching 'pair' in the other table.
 
-
-## Making a genre table 
+## Making a genre table
 
 ```
 CREATE TABLE genres (
-    id INT PRIMARY KEY,
+    id INT PRIMARY KEY // id SERIAL PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     description TEXT
+    enrolment_date DATE,
+    gpa NUMERIC(4,2)  // set floating point structure
 );
 ```
-
 
 ## Many to Many
 
@@ -84,7 +84,6 @@ CREATE TABLE books (
 );
 ```
 
-
 ```
 CREATE TABLE genres (
     id INT PRIMARY KEY,
@@ -92,7 +91,6 @@ CREATE TABLE genres (
     description TEXT
 );
 ```
-
 
 ```
 CREATE TABLE book_genres (
@@ -104,5 +102,8 @@ CREATE TABLE book_genres (
 );
 ```
 
+The ON DELETE CASCADE option ensures that when a book or genre is deleted, its corresponding entries in the BooksGenres table are also automatically deleted. So that nothing referes to something it shouldn't anymore.
 
-The ON DELETE CASCADE option ensures that when a book or genre is deleted, its corresponding entries in the BooksGenres table are also automatically deleted. So that nothing referes to something it shouldn't anymore. 
+## Update A Table
+
+UPDATE students SET gpa WHERE name = "tim"
