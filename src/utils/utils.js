@@ -8,7 +8,6 @@ export async function handleDelete(id) {
 }
 
 export async function handleUpdate(values, id) {
-  // values should be a string like `column1 = value` ect.
   await sql`UPDATE books SET ${values} WHERE id=${id}`;
   revalidatePath(`/books/${id}`);
 }
