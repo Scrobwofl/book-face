@@ -84,7 +84,19 @@ CREATE TABLE books (
 );
 ```
 
-VALUES (
+## TEST VALUES
+
+CREATE TABLE books (
+key VARCHAR(25),
+title VARCHAR(100),
+author_name VARCHAR(100),
+cover_image_url TEXT,
+first_sentence TEXT,
+publisher TEXT,
+publish_date DATE,
+number_of_pages INT,
+
+isbn INT
 "/works/OL15936512W",
 "Ready Player One",
 "Ernest Cline",
@@ -97,21 +109,27 @@ VALUES (
 )
 
 ```
+
+```
+
 CREATE TABLE genres (
-    id INT PRIMARY KEY,
-    name VARCHAR(255) NOT NULL,
-    description TEXT
+id INT PRIMARY KEY,
+name VARCHAR(255) NOT NULL,
+description TEXT
 );
+
 ```
 
 ```
+
 CREATE TABLE book_genres (
-    book_id INT,
-    genre_id INT,
-    PRIMARY KEY (book_id, genre_id),
-    FOREIGN KEY (book_id) REFERENCES books(id) ON DELETE CASCADE,
-    FOREIGN KEY (genre_id) REFERENCES genres(id) ON DELETE CASCADE
+book_id INT,
+genre_id INT,
+PRIMARY KEY (book_id, genre_id),
+FOREIGN KEY (book_id) REFERENCES books(id) ON DELETE CASCADE,
+FOREIGN KEY (genre_id) REFERENCES genres(id) ON DELETE CASCADE
 );
+
 ```
 
 The ON DELETE CASCADE option ensures that when a book or genre is deleted, its corresponding entries in the BooksGenres table are also automatically deleted. So that nothing referes to something it shouldn't anymore.
@@ -119,3 +137,4 @@ The ON DELETE CASCADE option ensures that when a book or genre is deleted, its c
 ## Update A Table
 
 UPDATE students SET gpa WHERE name = "tim"
+```
