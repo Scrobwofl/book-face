@@ -1,8 +1,8 @@
-import { getBookDetails } from "@/utils/openLibraryApi";
+import { GetBookDetails } from "@/utils/OpenLibraryApi";
 import BookDetails from "@/components/BookDetails";
 
 export default async function BookDetailsPage({ params }) {
-  const book = await getBookDetails(params.id);
+  const book = await GetBookDetails(params.id);
 
   return (
     <div>
