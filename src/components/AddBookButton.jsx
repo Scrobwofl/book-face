@@ -1,7 +1,7 @@
 "use client";
 import { useFormStatus } from "react-dom";
 import { useRouter } from "next/navigation";
-import addBookToLibrary from "@/utils/addBookToLibrary";
+import AddBookToLibrary from "@/utils/AddBookToLibrary";
 
 export default function AddBookButton({ book }) {
   const router = useRouter();
@@ -11,7 +11,7 @@ export default function AddBookButton({ book }) {
     try {
       console.log("clicked");
       console.log(book);
-      await addBookToLibrary(book);
+      await AddBookToLibrary(book);
       console.log("Book added to library successfully!");
       router.refresh(); // Refresh the current route
     } catch (error) {

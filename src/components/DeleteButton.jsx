@@ -1,5 +1,5 @@
 "use client";
-import { handleDelete } from "@/utils/addBookToLibrary";
+import { handleDelete } from "@/utils/AddBookToLibrary";
 import { useFormStatus } from "react-dom";
 
 export default function DeleteButton({ id }) {

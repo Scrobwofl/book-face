@@ -1,8 +1,7 @@
 import { sql } from "@vercel/postgres";
 
-export default async function addBookToDatabase(book) {
+export default async function AddBookToDatabase(book) {
   try {
-    // Assuming you have a table named 'books' with columns corresponding to the book properties
     await sql`
       INSERT INTO books (
         title,

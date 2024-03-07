@@ -3,7 +3,7 @@ import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
 import SubmitButton from "@/components/SubmitButton";
-import { getGenres } from "@/utils/addBookToLibrary";
+import { getGenres } from "@/utils/AddBookToLibrary";
 
 export default async function Page() {
   // becuase this function is used in the form action attribute, it's 'contents' are passed automatically (the formData)
