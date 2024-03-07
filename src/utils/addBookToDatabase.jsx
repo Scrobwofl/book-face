@@ -1,6 +1,6 @@
 import { sql } from "@vercel/postgres";
 
-export const addBookToDatabase = async (book) => {
+export default async function addBookToDatabase(book) {
   try {
     // Assuming you have a table named 'books' with columns corresponding to the book properties
     await sql`
@@ -30,4 +30,4 @@ export const addBookToDatabase = async (book) => {
     console.error("Error adding book to database:", error);
     throw error;
   }
-};
+}
