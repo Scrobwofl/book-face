@@ -2,7 +2,6 @@ import Link from "next/link";
 import { UserButton } from "@clerk/nextjs";
 import { FaHome } from "react-icons/fa";
 import { IoLibrary } from "react-icons/io5";
-import { MdAddBox } from "react-icons/md";
 import { MdViewTimeline } from "react-icons/md";
 import Image from "next/image";
 
@@ -32,14 +31,6 @@ export default function Nav() {
           <IoLibrary />
           <Link href="/books">Library</Link>
         </li>
-        {/* <li className="m-4 hover:text-yellow-600 flex flex-row items-center justify-center gap-2">
-          <MdAddBox />
-          <Link href="/books/add-book">Add Book</Link>
-        </li>
-        <li className="m-4 hover:text-yellow-600 flex flex-row items-center justify-center gap-2">
-          <MdViewTimeline />
-          <Link href="/add-genre">Add/View Genres</Link>
-        </li> */}
         <li className="m-4 hover:text-yellow-600 flex flex-row items-center justify-center gap-2">
           <MdViewTimeline />
           <Link href="/search">Search</Link>

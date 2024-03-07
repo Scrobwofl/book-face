@@ -1,8 +1,8 @@
-import AddBookToDatabase from "./AddBookToDatabase";
+import addBookToDatabase from "./AddBookToDatabase";
 
-export default async function AddBookToLibrary(book) {
+export default async function addBookToLibrary(book) {
   try {
-    await AddBookToDatabase(book);
+    await addBookToDatabase(book);
     console.log("Book added to library successfully!");
   } catch (error) {
     console.error("Error adding book to library:", error);

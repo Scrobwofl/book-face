@@ -1,4 +1,4 @@
-export default async function GetBookDetails(id) {
+export default async function getBookDetails(id) {
   const response = await fetch(`https://openlibrary.org/books/${id}.json`);
   const data = await response.json();
 
