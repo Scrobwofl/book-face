@@ -1,4 +1,4 @@
-import addBookToDatabase from "@/utils/addBookToDatabase";
+import addBookToDatabase from "./addBookToDatabase";
 
 export default async function addBookToLibrary(book) {
   try {
