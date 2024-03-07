@@ -1,4 +1,4 @@
-export default async function GetBookDetails(id) {
+export default async function getBookDetails(id) {
   const response = await fetch(`https://openlibrary.org/books/${id}.json`);
   const data = await response.json();
 
@@ -8,10 +8,7 @@ export default async function GetBookDetails(id) {
       data.authors && data.authors.length > 0
         ? data.authors.map((author) => author.name).join(", ")
         : "Unknown Author",
-    cover_image_url: data.covers?.[0]
-      ? `https://covers.openlibrary.org/b/id/${data.covers[0]}-L.jpg`
-      : null,
-    description: data.description?.value || "No description available",
+    cover_image_url: `https://covers.openlibrary.org/b/id/${data.covers?.[0]}-L.jpg`,
     quote: data.quotes?.[0] || "No quote available",
     publishers:
       data.publishers?.map((publisher) => ({

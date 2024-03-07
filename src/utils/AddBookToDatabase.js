@@ -1,6 +1,6 @@
 import { sql } from "@vercel/postgres";
 
-export default async function AddBookToDatabase(book) {
+export default async function addBookToDatabase(book) {
   try {
     await sql`
       INSERT INTO books (
@@ -17,7 +17,7 @@ export default async function AddBookToDatabase(book) {
         ${book.title},
         ${book.author_name},
         ${book.cover_image_url},
-        ${book.description},
+        ${book.description || ""},
         ${book.quote},
         ${JSON.stringify(book.publishers)},
         ${book.publish_date},
