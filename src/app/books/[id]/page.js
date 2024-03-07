@@ -1,4 +1,4 @@
-import getBookDetails from "@/utils/OpenLibraryApi";
+import getBookDetails from "@/utils/openLibraryApi";
 import BookDetails from "@/components/BookDetails";
 
 export default async function BookDetailsPage({ params }) {
