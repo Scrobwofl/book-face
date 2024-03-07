@@ -95,8 +95,8 @@ first_sentence TEXT,
 publisher TEXT,
 publish_date DATE,
 number_of_pages INT,
-
 isbn INT
+
 "/works/OL15936512W",
 "Ready Player One",
 "Ernest Cline",
