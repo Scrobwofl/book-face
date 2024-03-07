@@ -1,9 +1,5 @@
 import { sql } from "@vercel/postgres";
 
-const pool = sql({
-  connectionString: process.env.POSTGRES_URL,
-});
-
 export default async function addBookToDatabase(book) {
   try {
     // Check if the book already exists in the database
