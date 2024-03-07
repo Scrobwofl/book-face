@@ -1,6 +1,6 @@
 import addBookToDatabase from "@/utils/addBookToDatabase";
 
-export const addBookToLibrary = async (book) => {
+export default async function addBookToLibrary(book) {
   try {
     await addBookToDatabase(book);
     console.log("Book added to library successfully!");
@@ -8,4 +8,4 @@ export const addBookToLibrary = async (book) => {
     console.error("Error adding book to library:", error);
     throw error;
   }
-};
+}
