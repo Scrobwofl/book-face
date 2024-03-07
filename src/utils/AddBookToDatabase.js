@@ -36,6 +36,5 @@ export default async function addBookToDatabase(book) {
     `;
   } catch (error) {
     console.error("Error adding book to database:", error);
-    throw error;
   }
 }
