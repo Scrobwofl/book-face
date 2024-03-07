@@ -1,3 +1,5 @@
+"use server";
+
 import { sql } from "@vercel/postgres";
 
 export default async function addBookToDatabase(book) {
@@ -7,7 +9,7 @@ export default async function addBookToDatabase(book) {
       SELECT * FROM books WHERE api_key = ${book.key}
     `;
 
-    if (existingBook.rows.length > 0) {
+    if (existingBook.rows.count > 0) {
       console.log(`Book with key ${book.key} already exists in the database.`);
       return;
     }
