@@ -1,4 +1,4 @@
-import { getBookDetails } from "@/utils/openLibraryApi";
+import { getBookDetails } from "@/utils/OpenLibraryApi";
 import BookDetails from "@/components/BookDetails";
 import AddBookButton from "@/components/AddBookButton";
 
