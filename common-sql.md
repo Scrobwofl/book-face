@@ -84,6 +84,18 @@ CREATE TABLE books (
 );
 ```
 
+VALUES (
+"/works/OL15936512W",
+"Ready Player One",
+"Ernest Cline",
+"OL28320685M",
+"Everyone my age remembers where they were and what they were doing when they first heard about the contest."
+"Broadway",
+"Jun 05, 2012",
+"606",
+"9782266242332"
+)
+
 ```
 CREATE TABLE genres (
     id INT PRIMARY KEY,

@@ -9,7 +9,6 @@ export default async function getBookDetails(id) {
         ? data.authors.map((author) => author.name).join(", ")
         : "Unknown Author",
     cover_image_url: `https://covers.openlibrary.org/b/id/${data.covers?.[0]}-L.jpg`,
-    quote: data.quotes?.[0] || "No quote available",
     publishers:
       data.publishers?.map((publisher) => ({
         name: publisher.name,

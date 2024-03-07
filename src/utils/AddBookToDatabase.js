@@ -7,22 +7,18 @@ export default async function addBookToDatabase(book) {
         title,
         author_name,
         cover_image_url,
-        description,
-        quote,
         publishers,
         publish_date,
         number_of_pages,
         isbn
       ) VALUES (
-        ${book.title},
-        ${book.author_name},
-        ${book.cover_image_url},
-        ${book.description || ""},
-        ${book.quote},
-        ${JSON.stringify(book.publishers)},
-        ${book.publish_date},
-        ${book.number_of_pages},
-        ${JSON.stringify(book.isbn)}
+        ${book.title || ""},
+        ${book.author_name || ""},
+        ${book.cover_image_url || ""},
+        ${JSON.stringify(book.publishers || [])},
+        ${book.publish_date || null},
+        ${book.number_of_pages || null},
+        ${JSON.stringify(book.isbn || [])}
       )
     `;
   } catch (error) {
