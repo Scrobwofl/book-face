@@ -1,6 +1,6 @@
 import { sql } from "@vercel/postgres";
 
-export default async function addBookToDatabase(book) {
+export default async function AddBookToDatabase(book) {
   try {
     // Check if the book already exists in the database
     const existingBook = await sql`
