@@ -1,6 +1,5 @@
 "use client";
 
-import { SlowComponent } from "@/components/SlowComponent";
 import Image from "next/image";
 
 export default function Home() {
@@ -19,7 +18,6 @@ export default function Home() {
           your own books to the database for now.
         </p>
       </div>
-      {/* <SlowComponent /> */}
     </main>
   );
 }
