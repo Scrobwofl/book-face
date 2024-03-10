@@ -28,6 +28,14 @@ export default function Nav() {
           <Link href="/">Home</Link>
         </li>
         <li className="m-4 hover:text-yellow-600 flex flex-row items-center justify-center gap-2">
+          <FaHome />
+          <Link href="/dashboard">Dashboard</Link>
+        </li>
+        <li className="m-4 hover:text-yellow-600 flex flex-row items-center justify-center gap-2">
+          <FaHome />
+          <Link href={`/users`}>User</Link>
+        </li>
+        <li className="m-4 hover:text-yellow-600 flex flex-row items-center justify-center gap-2">
           <IoLibrary />
           <Link href="/books">Library</Link>
         </li>

@@ -84,32 +84,6 @@ CREATE TABLE books (
 );
 ```
 
-## TEST VALUES
-
-CREATE TABLE books (
-key VARCHAR(25),
-title VARCHAR(100),
-author_name VARCHAR(100),
-cover_image_url TEXT,
-first_sentence TEXT,
-publisher TEXT,
-publish_date DATE,
-number_of_pages INT,
-isbn INT
-
-"/works/OL15936512W",
-"Ready Player One",
-"Ernest Cline",
-"OL28320685M",
-"Everyone my age remembers where they were and what they were doing when they first heard about the contest."
-"Broadway",
-"Jun 05, 2012",
-"606",
-"9782266242332"
-)
-
-```
-
 ```
 
 CREATE TABLE genres (
@@ -137,4 +111,54 @@ The ON DELETE CASCADE option ensures that when a book or genre is deleted, its c
 ## Update A Table
 
 UPDATE students SET gpa WHERE name = "tim"
+
 ```
+
+```
+
+## TEST VALUES
+
+CREATE TABLE books (
+book_id SERIAL PRIMARY KEY,
+api_key VARCHAR(50),
+title VARCHAR(150),
+author_name VARCHAR(100),
+cover_image_url TEXT,
+first_sentence TEXT,
+publishers TEXT,
+publish_date DATE,
+number_of_pages INT,
+isbn VARCHAR(13)
+);
+
+INSERT INTO books (
+api_key, title, author_name, cover_image_url, first_sentence, publishers, publish_date, number_of_pages, isbn
+) VALUES (
+'/works/OL15936512W', 'Ready Player One', 'Ernest Cline', 'OL28320685M', 'Everyone my age remembers where they were and what they were doing when they first heard about the contest.', 'Broadway', '2012-06-05', 606, '9782266242332'
+);
+
+```
+CREATE TABLE user_books (
+  user_id INTEGER REFERENCES users(id),
+  book_id INTEGER REFERENCES books(book_id),
+  PRIMARY KEY (user_id, book_id)
+);
+
+CREATE TABLE users (
+  id SERIAL PRIMARY KEY,
+  username VARCHAR(255) UNIQUE,
+  name VARCHAR(255),
+  email VARCHAR(255) UNIQUE,
+  password VARCHAR(255),
+  profile_picture VARCHAR(255)
+);
+```
+
+CREATE TABLE books (
+book_id SERIAL PRIMARY KEY,
+api_key VARCHAR(255) UNIQUE,
+title VARCHAR(255),
+author_name VARCHAR(255),
+cover_image_url VARCHAR(255),
+description TEXT
+);

@@ -1,12 +1,10 @@
-import getBookDetails from "@/utils/openLibraryApi";
 import BookDetails from "@/components/BookDetails";
 
 export default async function BookDetailsPage({ params }) {
-  const book = await getBookDetails(params.id);
-
+  console.log(params);
   return (
     <div>
-      <BookDetails book={book} />
+      <BookDetails bookId={params.id} fetchFromAPI={true} />
     </div>
   );
 }

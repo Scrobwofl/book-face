@@ -17,6 +17,7 @@ export default function Search() {
         )}&limit=10`
       );
       const data = await results.json();
+      console.log(data);
 
       if (data.docs) {
         setBooks(data.docs);

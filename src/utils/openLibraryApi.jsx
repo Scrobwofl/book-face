@@ -1,20 +1,26 @@
-export default async function getBookDetails(id) {
-  const response = await fetch(`https://openlibrary.org/books/${id}.json`);
-  const data = await response.json();
+"use server";
+
+export default async function getBookDetails(bookId) {
+  const bookResponse = await fetch(
+    `https://openlibrary.org/works/${bookId}.json`
+  );
+  const bookData = await bookResponse.json();
+
+  const authorPromises = bookData.authors.map(async (author) => {
+    const authorResponse = await fetch(
+      `https://openlibrary.org${author.author.key}.json`
+    );
+    const authorData = await authorResponse.json();
+    return authorData.name;
+  });
+
+  const authorNames = await Promise.all(authorPromises);
 
   return {
-    title: data.title || "Unknown Title",
-    author_name:
-      data.authors && data.authors.length > 0
-        ? data.authors.map((author) => author.name).join(", ")
-        : "Unknown Author",
-    cover_image_url: `https://covers.openlibrary.org/b/id/${data.covers?.[0]}-L.jpg`,
-    publishers:
-      data.publishers?.map((publisher) => ({
-        name: publisher.name,
-      })) || [],
-    publish_date: data.publish_date || null,
-    number_of_pages: data.number_of_pages || null,
-    isbn: data.isbn?.map((isbn) => isbn.value) || [],
+    description: bookData.description?.value || "",
+    title: bookData.title || "Unknown Title",
+    covers: bookData.covers || [],
+    key: bookData.key || "",
+    authors: authorNames.join(", "),
   };
 }
